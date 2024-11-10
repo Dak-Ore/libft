@@ -63,7 +63,3 @@ Fonctions de manipulation des listes chaînées :
 - ✅ `ft_lstclear` : Supprime tous les éléments de la liste
 - ✅ `ft_lstiter` : Applique une fonction à chaque élément de la liste
 - ✅ `ft_lstmap` : Crée une nouvelle liste en appliquant une fonction à chaque élément
-
----
-
-Ce projet permet de créer une base solide de fonctions en C, et le score de 125% souligne l'excellence de l'implémentation et de la gestion de ces fonctionnalités.
