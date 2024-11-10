@@ -6,7 +6,7 @@
 /*   By: rsebasti <rsebasti@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 06:03:21 by rsebasti          #+#    #+#             */
-/*   Updated: 2024/11/08 05:35:57 by rsebasti         ###   ########.fr       */
+/*   Updated: 2024/11/10 12:33:48 by rsebasti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*nlst;
 	t_list	*nelem;
-	t_list	*save;
+	void	*ncontent;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	nlst = NULL;
 	nelem = NULL;
-	save = lst;
 	while (lst)
 	{
-		nelem = ft_lstnew(f(lst->content));
+		ncontent = f(lst->content);
+		nelem = ft_lstnew(ncontent);
 		if (!nelem)
 		{
 			ft_lstclear(&nlst, del);
-			ft_lstdelone(nelem, del);
+			del(ncontent);
 			return (NULL);
 		}
 		ft_lstadd_back(&nlst, nelem);
